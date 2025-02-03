@@ -4,6 +4,7 @@ import axios from "axios";
 import cblogo from "./cblogo.png";
 import image from "./bg.png";
 import DropzoneArea from "./ui/DropzoneArea";
+import "./styles.css"; 
 
 export const ImageUpload = () => {
   const [selectedFile, setSelectedFile] = useState(null); 
