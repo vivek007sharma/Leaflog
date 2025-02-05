@@ -1,0 +1,102 @@
+/* General Styles for Dropzone */
+.dropzone-area {
+    position: relative;
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    min-height: 200px;
+    overflow: hidden; 
+    box-shadow: 0 4px 8px rgba(0, 100, 0, 0.3); 
+    backdrop-filter: blur(5px);
+}
+
+/* Hover Effect */
+.dropzone-area:hover {
+    background-color: rgba(34, 139, 34, 0.4); 
+    border-color: rgba(255, 255, 255, 1); 
+}
+
+/* Dropzone Text */
+.dropzone-area .dropzone-message {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 15px;
+    opacity: 1;
+    z-index: 2;
+}
+
+.dropzone-area .dropzone-message p {
+    margin: 0;
+}
+
+/* File input button */
+.dropzone-area input[type="file"] {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: rgba(255, 255, 255, 0.7); /* Light background */
+    color: #333;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+.dropzone-area input[type="file"]:hover {
+    background-color: rgba(255, 255, 255, 1);
+}
+
+
+.file-list {
+    margin-top: 20px;
+}
+
+.file-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    background-color: rgba(255, 255, 255, 0.85);
+    padding: 12px;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 100, 0, 0.3); 
+}
+
+.file-item .file-preview {
+    display: flex;
+    align-items: center;
+}
+
+.file-preview img {
+    max-width: 50px;
+    max-height: 50px;
+    margin-right: 10px;
+    border-radius: 8px;
+}
+
+.file-preview span {
+    font-size: 14px;
+    color: #333;
+}
+
+
+
+/***** Remove File Button *****/
+.remove-file {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: background-color 0.3s ease;
+}
+
+.remove-file:hover {
+    background-color: #e60000;
+}
