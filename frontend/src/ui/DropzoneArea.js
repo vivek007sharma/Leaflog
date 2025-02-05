@@ -14,7 +14,7 @@ const DropzoneArea = ({ onFileSelect, acceptedFiles = [] }) => {
     setFiles(prevFiles => [...prevFiles, ...filteredFiles]);
 
     if (onFileSelect) {
-      onFileSelect(filteredFiles); // Passing the selected files back to parent component
+      onFileSelect(filteredFiles);
     }
   };
 

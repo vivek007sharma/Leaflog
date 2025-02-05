@@ -2,14 +2,14 @@ import { useState, useEffect } from "react";
 import React from "react";
 import axios from "axios";
 import cblogo from "./cblogo.png";
-import image from "./bg.png";
+import image from "./bg.jpg";
 import DropzoneArea from "./ui/DropzoneArea";
-import "./styles.css"; 
+import "./styles.css";
 
 export const ImageUpload = () => {
-  const [selectedFile, setSelectedFile] = useState(null); 
-  const [preview, setPreview] = useState(null); 
-  const [data, setData] = useState(null); 
+  const [selectedFile, setSelectedFile] = useState(null);
+  const [preview, setPreview] = useState(null);
+  const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   let confidence = 0;
 
@@ -51,13 +51,13 @@ export const ImageUpload = () => {
       setSelectedFile(null);
       return;
     }
-    setSelectedFile(files[0]); 
-    setData(null); 
+    setSelectedFile(files[0]);
+    setData(null);
   };
 
   const removeFile = () => {
-    setSelectedFile(null); 
-    setPreview(null); 
+    setSelectedFile(null);
+    setPreview(null);
   };
 
   if (data) {
@@ -67,15 +67,15 @@ export const ImageUpload = () => {
   return (
     <div className="container">
       <header className="appbar">
-        <h1>LeafLog: Leaves Classification</h1>
+        <p id="main-title">LeafLog: Leaves Classification</p>
         <img src={cblogo} alt="Logo" className="logo" />
       </header>
       <main className="main-container" style={{ backgroundImage: `url(${image})` }}>
         <div className="image-card">
           {selectedFile ? (
-            <div>
+            <div className="remove-image-button">
               <img src={preview} alt="Uploaded" className="uploaded-image" />
-              <button onClick={removeFile} className="remove-image-button">Remove Image</button>
+              <button onClick={removeFile}>Remove Image</button>
             </div>
           ) : (
             <DropzoneArea onFileSelect={onSelectFile} />
@@ -85,3 +85,5 @@ export const ImageUpload = () => {
     </div>
   );
 };
+
+export default ImageUpload
