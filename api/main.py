@@ -57,6 +57,14 @@ from PIL import Image
 import tensorflow as tf
 
 app = FastAPI()
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Change this to your frontend URL in production
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 
 MODEL = tf.keras.models.load_model("../LeafLog.keras")
 
