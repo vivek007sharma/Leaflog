@@ -17,7 +17,13 @@ export const ImageUpload = () => {
     if (selectedFile) {
       let formData = new FormData();
       formData.append("file", selectedFile);
-      let res = await axios.post(process.env.REACT_APP_API_URL, formData);
+      console.log(formData);
+      const apiUrl = "http://localhost:8001/predict";
+      let res = await axios.post(apiUrl, formData, {
+        headers: { "Content-Type": "multipart/form-data" }, 
+      });
+      console.log(res);
+      
       if (res.status === 200) {
         setData(res.data);
       }
