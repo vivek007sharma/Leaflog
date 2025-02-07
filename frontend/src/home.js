@@ -20,10 +20,10 @@ export const ImageUpload = () => {
       console.log(formData);
       const apiUrl = "http://localhost:8001/predict";
       let res = await axios.post(apiUrl, formData, {
-        headers: { "Content-Type": "multipart/form-data" }, 
+        headers: { "Content-Type": "multipart/form-data" },
       });
       console.log(res);
-      
+
       if (res.status === 200) {
         setData(res.data);
       }
@@ -64,6 +64,7 @@ export const ImageUpload = () => {
   const removeFile = () => {
     setSelectedFile(null);
     setPreview(null);
+    setData(null);
   };
 
   if (data) {
@@ -75,7 +76,7 @@ export const ImageUpload = () => {
         <p id="main-title">LeafLog: Leaves Classification</p>
         <img src={cblogo} alt="Logo" className="logo" />
       </header>
-  
+
       <main className="main-container" style={{ backgroundImage: `url(${image})` }}>
         <div className="image-card">
           {selectedFile ? (
@@ -87,12 +88,13 @@ export const ImageUpload = () => {
             <DropzoneArea onFileSelect={onSelectFile} />
           )}
         </div>
-  
+
         {data && (
           <div className="result-container">
             <h3>Prediction Result</h3>
             <p><strong>Class:</strong> {data.class}</p>
-            <p><strong>Confidence:</strong> {confidence}%</p>
+
+            {/* <p><strong>Confidence:</strong> {confidence}%</p> */}
           </div>
         )}
       </main>
