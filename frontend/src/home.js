@@ -69,13 +69,13 @@ export const ImageUpload = () => {
   if (data) {
     confidence = (parseFloat(data.confidence) * 100).toFixed(2);
   }
-
   return (
     <div className="container">
       <header className="appbar">
         <p id="main-title">LeafLog: Leaves Classification</p>
         <img src={cblogo} alt="Logo" className="logo" />
       </header>
+  
       <main className="main-container" style={{ backgroundImage: `url(${image})` }}>
         <div className="image-card">
           {selectedFile ? (
@@ -87,6 +87,14 @@ export const ImageUpload = () => {
             <DropzoneArea onFileSelect={onSelectFile} />
           )}
         </div>
+  
+        {data && (
+          <div className="result-container">
+            <h3>Prediction Result</h3>
+            <p><strong>Class:</strong> {data.class}</p>
+            <p><strong>Confidence:</strong> {confidence}%</p>
+          </div>
+        )}
       </main>
     </div>
   );
