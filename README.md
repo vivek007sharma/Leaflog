@@ -53,9 +53,13 @@ Other Tools:
 ## 🚀 Usage  
 
 1️⃣ Open the web application in your browser.  
+
 2️⃣ Upload an image of a plant leaf.  
+
 3️⃣ The model predicts the leaf class. 
+
 4️⃣ The related blog about the plant is fetched and displayed. 
+
 5️⃣ Enjoy learning about plants! 
   
 
