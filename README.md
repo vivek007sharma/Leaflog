@@ -41,7 +41,8 @@ Frontend:
 Backend: 
 - FastAPI  
 - TensorFlow/Keras (for deep learning model)  
-- NumPy, PIL (for image processing)  
+- NumPy, PIL (for image processing)
+- Cors (for handling multiple localhost)
 
 Other Tools:
 - Uvicorn (for running FastAPI server)  
