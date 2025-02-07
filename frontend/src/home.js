@@ -11,6 +11,7 @@ export const ImageUpload = () => {
   const [preview, setPreview] = useState(null);
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [blog, setBlog]=useState(null);
   let confidence = 0;
 
   const sendFile = async () => {
@@ -20,12 +21,13 @@ export const ImageUpload = () => {
       console.log(formData);
       const apiUrl = "http://localhost:8001/predict";
       let res = await axios.post(apiUrl, formData, {
-        headers: { "Content-Type": "multipart/form-data" },
+        headers: { "Content-Type": "multipart/form-data" }, 
       });
       console.log(res);
-
+      
       if (res.status === 200) {
         setData(res.data);
+        setBlog(res.data.blog);
       }
       setIsLoading(false);
     }
@@ -35,6 +37,7 @@ export const ImageUpload = () => {
     setData(null);
     setSelectedFile(null);
     setPreview(null);
+    setBlog(null);
   };
 
   useEffect(() => {
@@ -59,24 +62,25 @@ export const ImageUpload = () => {
     }
     setSelectedFile(files[0]);
     setData(null);
+    setBlog(null);
   };
 
   const removeFile = () => {
     setSelectedFile(null);
     setPreview(null);
-    setData(null);
+    setBlog(null);
   };
 
   if (data) {
     confidence = (parseFloat(data.confidence) * 100).toFixed(2);
   }
+
   return (
     <div className="container">
       <header className="appbar">
         <p id="main-title">LeafLog: Leaves Classification</p>
         <img src={cblogo} alt="Logo" className="logo" />
       </header>
-
       <main className="main-container" style={{ backgroundImage: `url(${image})` }}>
         <div className="image-card">
           {selectedFile ? (
@@ -87,14 +91,14 @@ export const ImageUpload = () => {
           ) : (
             <DropzoneArea onFileSelect={onSelectFile} />
           )}
-        </div>
-
+          </div>
+          {/* 🔹 Show Prediction Result */}
         {data && (
-          <div className="result-container">
+          <div className="result-box">
             <h3>Prediction Result</h3>
             <p><strong>Class:</strong> {data.class}</p>
-
             {/* <p><strong>Confidence:</strong> {confidence}%</p> */}
+            <p><strong>Blog: </strong>{blog}</p>               
           </div>
         )}
       </main>
