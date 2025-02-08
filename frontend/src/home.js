@@ -24,7 +24,7 @@ export const ImageUpload = () => {
         headers: { "Content-Type": "multipart/form-data" }, 
       });
       console.log(res);
-      
+
       if (res.status === 200) {
         setData(res.data);
         setBlog(res.data.blog);
@@ -91,14 +91,12 @@ export const ImageUpload = () => {
           ) : (
             <DropzoneArea onFileSelect={onSelectFile} />
           )}
-          </div>
-          {/* 🔹 Show Prediction Result */}
+        </div>
         {data && (
-          <div className="result-box">
+          <div className="result-container">
             <h3>Prediction Result</h3>
             <p><strong>Class:</strong> {data.class}</p>
-            {/* <p><strong>Confidence:</strong> {confidence}%</p> */}
-            <p><strong>Blog: </strong>{blog}</p>               
+            <p><strong>Blog: </strong>{blog}</p>
           </div>
         )}
       </main>
@@ -106,4 +104,4 @@ export const ImageUpload = () => {
   );
 };
 
-export default ImageUpload
+export default ImageUpload;
